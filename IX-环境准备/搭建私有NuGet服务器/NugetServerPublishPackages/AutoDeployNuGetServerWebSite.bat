@@ -70,6 +70,13 @@ echo=
 @echo ---------------------------------------------------
 echo=
 
+:: 因为 IIS 7 采用了更安全的 web.config 管理机制，默认情况下会锁住配置项不允许更改。运行命令行 
+@C:\windows\system32\inetsrv\appcmd unlock config -section:system.webServer/handlers
+
+:: 其中的 handlers 是错误信息中红字显示的节点名称。 如果modules也被锁定，可以运行
+@C:\windows\system32\inetsrv\appcmd unlock config -section:system.webServer/modules
+
+
 
 
 ::高亮显示
